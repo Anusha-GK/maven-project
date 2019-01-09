@@ -8,12 +8,12 @@ pipeline {
 stages{
         stage('Build'){
             steps {
-                sh 'mvn clean compile'
+                bat 'mvn clean compile'
             }
             post {
                 success {
                     echo 'Now Archiving...'
-                    archiveArtifacts artifacts: '**/target/*.war'
+                    archiveArtifacts artifacts: '**/*.war'
                 }
             }
         }
